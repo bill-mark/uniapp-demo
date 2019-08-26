@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="uni-list">
             <view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(item,index) in news" 
-                  :key="index" @tap="openinfo">
+                  :key="index" @tap="openinfo(item)" >
                 <view class="uni-media-list">
                     <image class="uni-media-list-logo" :src="item.author_avatar"></image>
                     <view class="uni-media-list-body">
@@ -38,10 +38,12 @@
            })
 		}, 
 		methods: {
-            openinfo(){
-            	console.log('openinfo')
+            openinfo(data){
+            	//console.log('openinfo')
+            	//console.log(data.post_id)
+            	//return
             	uni.navigateTo({
-                  url:'../info/info',                
+                  url:'../info/info?newsid='+data.post_id,                
             	})
             }
 		}
